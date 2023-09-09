@@ -21,9 +21,13 @@ ret=com.read()
 com.close()
 
 news_path = "/"
-loaded_model = BertForSequenceClassification.from_pretrained(news_path)
+f=open('new_path','r')
+data=f.read()
+data=data + ret
+f.close()
+loaded_model = BertForSequenceClassification.from_pretrained(data)
 loaded_model.cuda()
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(news_path)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(data)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
