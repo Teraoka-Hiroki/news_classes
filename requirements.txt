@@ -1,0 +1,5 @@
+streamlit
+transformers==4.26.0
+numpy
+torch
+
