@@ -56,9 +56,9 @@ for filename in file_list:
 
 
 
-loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
+loaded_model = BertForSequenceClassification.from_pretrained(directory_path)
 loaded_model.cuda() 
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(directory_path)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
