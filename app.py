@@ -50,7 +50,6 @@ file_contents += ret_contents + '\n'
 
 # すべてのファイルの内容を表示
 #print(file_contents)
-この修正を行うことで、retファイルの内容を文字列としてfile_contentsに追加できるはずです。
 
 
 
