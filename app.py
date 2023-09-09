@@ -46,7 +46,7 @@ for filename in file_list:
 #    with open(ret_file_path, 'r') as ret_file:
 #        ret_contents = ret_file.read()
 file_contents += f'pytouch_model.bin: ret\n'
-file_contents += ret + '\n'
+#file_contents += ret + '\n'
 
 # すべてのファイルの内容を表示
 #print(file_contents)
