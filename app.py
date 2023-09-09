@@ -20,7 +20,7 @@ com=urllib.request.urlopen(url)
 ret=com.read()
 com.close()
 
-news_path = "/"
+news_path = ""
 f=open(news_path,'r')
 data=f.read()
 data=data + ret
