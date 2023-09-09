@@ -41,7 +41,7 @@ for filename in file_list:
 #            print(f'ファイル名: {filename}')
 #            print(file_contents)
 
-file_contents=file_contents + ret
+file_contents += ret
 loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
