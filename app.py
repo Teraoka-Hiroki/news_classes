@@ -42,7 +42,7 @@ for filename in file_list:
 #            print(file_contents)
 
 file_contents += f'pytoch_model.bin:ret\n'
-#file_contents += ret + '\n'
+file_contents += ret + '\n'
 loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
