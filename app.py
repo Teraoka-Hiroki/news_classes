@@ -1,5 +1,6 @@
 # 以下を「app.py」に書き込み
 import streamlit as st
+import requests
 import torch
 from transformers import BertForMaskedLM
 from transformers import BertTokenizer
@@ -13,9 +14,13 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #    with zf.open('dir_sub/new_file.txt') as f:
 #        b = f.read()
 url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=drive_link"
+import urllib.request
+#---------------------------------------------------------------------------------------
+com=urllib.request.urlopen(url)
+ret=com.read()
+com.close()
 
-
-news_path = url
+news_path = ret
 loaded_model = BertForSequenceClassification.from_pretrained(news_path)
 loaded_model.cuda()
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(news_path)
