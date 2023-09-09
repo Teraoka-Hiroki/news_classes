@@ -20,14 +20,31 @@ com=urllib.request.urlopen(url)
 ret=com.read()
 com.close()
 
-news_path = ""
-f=open(news_path,'r')
-data=f.read()
-data=data + ret
-f.close()
-loaded_model = BertForSequenceClassification.from_pretrained(data)
+import os
+
+# ファイルがあるディレクトリを指定（相対パスまたは絶対パスを使用）
+directory_path = '.'  # カレントディレクトリを指定します。必要に応じて変更してください。
+
+# ディレクトリ内のファイル一覧を取得
+file_list = os.listdir(directory_path)
+
+# ディレクトリ内の各ファイルを順番に処理
+for filename in file_list:
+    # フルパスを作成
+    file_path = os.path.join(directory_path, filename)
+    
+    # ファイルかどうかを確認（ディレクトリなどは除外）
+    if os.path.isfile(file_path):
+        # ファイルを開いて中身を読み取る
+        with open(file_path, 'r') as file:
+            file_contents = file.read()
+#            print(f'ファイル名: {filename}')
+#            print(file_contents)
+
+file_contents.append(ret)
+loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
 loaded_model.cuda()
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(data)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
