@@ -9,8 +9,10 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #sc_model = BertForSequenceClassification.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking", num_labels=9)
 #sc_model.cuda()
 #tokenizer = BertJapaneseTokenizer.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking")
-
-news_path = "/content/drive/MyDrive/Mago_Serise/mago120(news_clasification)/"
+#with zipfile.ZipFile('.zip') as zf:
+#    with zf.open('dir_sub/new_file.txt') as f:
+#        b = f.read()
+news_path = "pytoch_model.bin"
 loaded_model = BertForSequenceClassification.from_pretrained(news_path)
 loaded_model.cuda()
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(news_path)
