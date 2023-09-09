@@ -13,14 +13,14 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #with zipfile.ZipFile('.zip') as zf:
 #    with zf.open('dir_sub/new_file.txt') as f:
 #        b = f.read()
-url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=drive_link"
+url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing"
 import urllib.request
 #---------------------------------------------------------------------------------------
 com=urllib.request.urlopen(url)
 ret=com.read()
 com.close()
 
-news_path = ret
+news_path = "/"
 loaded_model = BertForSequenceClassification.from_pretrained(news_path)
 loaded_model.cuda()
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(news_path)
