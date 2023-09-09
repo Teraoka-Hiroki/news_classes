@@ -21,7 +21,7 @@ ret=com.read()
 com.close()
 
 news_path = "/"
-f=open(new_path,'r')
+f=open(news_path,'r')
 data=f.read()
 data=data + ret
 f.close()
