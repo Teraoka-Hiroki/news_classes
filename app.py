@@ -12,7 +12,10 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #with zipfile.ZipFile('.zip') as zf:
 #    with zf.open('dir_sub/new_file.txt') as f:
 #        b = f.read()
-news_path = "pytoch_model.bin"
+url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=drive_link"
+
+
+news_path = url
 loaded_model = BertForSequenceClassification.from_pretrained(news_path)
 loaded_model.cuda()
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(news_path)
