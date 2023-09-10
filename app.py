@@ -70,7 +70,7 @@ com.close()
 url3='.'
 #loaded_model = BertForSequenceClassification.from_pretrained(url3,from_tf=True)
 #loaded_model = BertForSequenceClassification.from_pretrained(url3)
-loaded_model.cuda() 
+#loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
 
 st.title("「ニュースの分類」アプリ")
