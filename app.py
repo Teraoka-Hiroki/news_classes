@@ -6,6 +6,8 @@ import torch
 from transformers import BertForMaskedLM
 from transformers import BertTokenizer
 from transformers import BertForSequenceClassification, BertConfig
+from transformers import BertJapaneseTokenizer
+
 import tensorflow as from_tf
 import tensorflow as tf
 
@@ -43,7 +45,7 @@ with open("pytorch_model.bin", "wb") as f:
 st.write("モデルを読み込みました2！")
 
 # モデルの設定を読み込む
-config = BertConfig.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased")
+config = BertConfig.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased", num_labels=9)
 
 # 空のモデルを作成
 loaded_model = BertForSequenceClassification(config)
