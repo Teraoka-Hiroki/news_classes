@@ -53,7 +53,7 @@ loaded_model = BertForSequenceClassification.from_pretrained(
 )
 
 # モデルのウェイトを読み込む
-loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
+#loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
 
 # モデルを読み込む
 #loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
@@ -63,7 +63,7 @@ st.write("モデルを読み込みました3！")
 com.close()
 
 url3='.'
-#loaded_model = BertForSequenceClassification.from_pretrained(url)
+loaded_model = BertForSequenceClassification.from_pretrained(url)
 #loaded_model = BertForSequenceClassification.from_pretrained(url3)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
