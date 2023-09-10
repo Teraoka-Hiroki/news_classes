@@ -37,11 +37,11 @@ result_path = combine_multiple_paths(path1, path2)
 #print("結合されたファイルパス:", result_paths)
 
 
+url2='['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']'
 
-
-loaded_model = BertForSequenceClassification.from_pretrained(result_path)
+loaded_model = BertForSequenceClassification.from_pretrained(url2)
 loaded_model.cuda() 
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(result_path)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url2)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
