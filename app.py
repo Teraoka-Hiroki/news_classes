@@ -39,18 +39,21 @@ download_link = f"https://drive.google.com/uc?id={file_id}"
 
 # モデルをダウンロード
 response = requests.get(download_link)
+
 # モデルファイルを保存
 with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
+
 st.write("モデルを読み込みました2！")
 
-
-# モデルファイルを指定して読み込む
-loaded_model=BertForSequenceClassification.from_pretrained("https://huggingface.co/cl-tohoku/bert-base-japanese-whole-word-masking", num_labels=9)
+# モデルを読み込む
+loaded_model = BertForSequenceClassification.from_pretrained(
+    "cl-tohoku/bert-base-japanese-whole-word-masking",  # 正しいモデル識別子を指定
+    num_labels=9  # ラベルの数を指定（必要に応じて調整）
+)
 
 # モデルのウェイトを読み込む
 loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
-
 
 # モデルを読み込む
 #loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
