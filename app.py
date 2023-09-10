@@ -19,7 +19,7 @@ import urllib.request
 #---------------------------------------------------------------------------------------
 com=urllib.request.urlopen(url)
 ret=com.read()
-com.close()
+#com.close()
 
 import os
 
@@ -42,15 +42,16 @@ response = requests.get(url)
 file_id = "1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n"
 
 # ダウンロードリンクを生成
-download_link = f"https://drive.google.com/uc?id={file_id}/view?usp=sharing"
+download_link = f"https://drive.google.com/uc?id={file_id}"
 
 # モデルをダウンロード
-response = requests.get(url)
+response = requests.get(download_link)
 # ダウンロードしたモデルをメモリ内に読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
     ".",  # ここではダミーのベースモデルを指定
-    state_dict=ret,
+    state_dict=response
 )
+com.close()
 
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
 url3='.'
