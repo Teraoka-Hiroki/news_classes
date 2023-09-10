@@ -22,21 +22,9 @@ import urllib.request
 com=urllib.request.urlopen(url)
 ret=com.read()
 #com.close()
-
+st.write("モデルを読み込みました1！")
 import os
 
-def combine_multiple_paths(*file_paths):
-    return list(file_paths)
-
-# テスト用の複数のファイルパス
-path1 = "."
-path2 = url
-#path3 = "/path/to/file3"
-
-# 複数のファイルパスを結合
-result_path = combine_multiple_paths(path1, path2)
-
-#print("結合されたファイルパス:", result_paths)
 # モデルをダウンロード
 response = requests.get(url)
 
@@ -51,12 +39,13 @@ response = requests.get(download_link)
 # モデルファイルを保存
 with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
+st.write("モデルを読み込みました2！")
 
 # モデルを読み込む
-loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True, state_dict=response.content)
+loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
 
 # Streamlitアプリケーションでモデルを使用
-st.write("モデルを読み込みました！")
+st.write("モデルを読み込みました3！")
 com.close()
 
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
