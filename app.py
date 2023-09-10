@@ -14,7 +14,7 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #with zipfile.ZipFile('.zip') as zf:
 #    with zf.open('dir_sub/new_file.txt') as f:
 #        b = f.read()
-url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=drive_link"
+url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing"
 import urllib.request
 #---------------------------------------------------------------------------------------
 com=urllib.request.urlopen(url)
@@ -38,6 +38,14 @@ result_path = combine_multiple_paths(path1, path2)
 # モデルをダウンロード
 response = requests.get(url)
 
+# 共有リンクからファイルIDを抽出
+file_id = "1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n"
+
+# ダウンロードリンクを生成
+download_link = f"https://drive.google.com/uc?id={file_id}"
+
+# モデルをダウンロード
+response = requests.get(download_link)
 # ダウンロードしたモデルをメモリ内に読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
     ".",  # ここではダミーのベースモデルを指定
