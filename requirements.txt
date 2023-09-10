@@ -3,5 +3,6 @@ transformers
 torch
 tensorflow==2.11.0
 nlp
+fugashi
 
 
