@@ -53,7 +53,7 @@ with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
 
 # モデルを読み込む
-loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True)
+loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True, state_dict=response.content)
 
 # Streamlitアプリケーションでモデルを使用
 st.write("モデルを読み込みました！")
