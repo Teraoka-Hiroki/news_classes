@@ -8,8 +8,8 @@ from transformers import BertTokenizer
 from transformers import BertForSequenceClassification, BertConfig
 from transformers import BertJapaneseTokenizer
 
-import tensorflow as from_tf
-import tensorflow as tf
+#import tensorflow as from_tf
+#import tensorflow as tf
 
 from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 
