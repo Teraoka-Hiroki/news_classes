@@ -6,6 +6,7 @@ import torch
 from transformers import BertForMaskedLM
 from transformers import BertTokenizer
 import tensorflow as from_tf
+import tensorflow as tf
 
 from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 
@@ -52,7 +53,7 @@ with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
 
 # モデルを読み込む
-loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True, state_dict=response.content)
+loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True)
 
 # Streamlitアプリケーションでモデルを使用
 st.write("モデルを読み込みました！")
