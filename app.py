@@ -51,7 +51,7 @@ with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
 
 # モデルを読み込む
-#loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
+loaded_model = BertForSequenceClassification.from_pretrained(".", from_tf=True, state_dict=response.content)
 
 # Streamlitアプリケーションでモデルを使用
 st.write("モデルを読み込みました！")
@@ -60,7 +60,7 @@ com.close()
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
 url3='.'
 #loaded_model = BertForSequenceClassification.from_pretrained(url)
-loaded_model = BertForSequenceClassification.from_pretrained(url3)
+#loaded_model = BertForSequenceClassification.from_pretrained(url3)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
 
