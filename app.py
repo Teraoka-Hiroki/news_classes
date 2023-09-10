@@ -32,7 +32,7 @@ path2 = url
 #path3 = "/path/to/file3"
 
 # 複数のファイルパスを結合
-result_paths = combine_multiple_paths(path1, path2)
+result_path = combine_multiple_paths(path1, path2)
 
 #print("結合されたファイルパス:", result_paths)
 
