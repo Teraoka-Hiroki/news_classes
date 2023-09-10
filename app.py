@@ -46,18 +46,21 @@ download_link = f"https://drive.google.com/uc?id={file_id}"
 
 # モデルをダウンロード
 response = requests.get(download_link)
-# ダウンロードしたモデルをメモリ内に読み込む
+# モデルファイルを保存
+with open("pytorch_model.bin", "wb") as f:
+    f.write(response.content)
+
+# モデルを読み込む
+#loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
+
+# Streamlitアプリケーションでモデルを使用
 st.write("モデルを読み込みました！")
-loaded_model = BertForSequenceClassification.from_pretrained(
-    ".",  # ここではダミーのベースモデルを指定
-    state_dict=response.content
-)
 com.close()
 
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
 url3='.'
 #loaded_model = BertForSequenceClassification.from_pretrained(url)
-#loaded_model = BertForSequenceClassification.from_pretrained(url3)
+loaded_model = BertForSequenceClassification.from_pretrained(url3)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
 
