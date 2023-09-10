@@ -43,7 +43,7 @@ with open("pytorch_model.bin", "wb") as f:
 st.write("モデルを読み込みました2！")
 
 # モデルの設定を読み込む
-config = BertConfig.from_pretrained("bert-base-uncased")
+config = BertConfig.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased")
 
 # 空のモデルを作成
 loaded_model = BertForSequenceClassification(config)
