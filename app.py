@@ -48,7 +48,7 @@ st.write("モデルを読み込みました2！")
 
 # モデルを読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
-    "cl-tohoku/bert-base-japanese-whole-word-masking-uncased",  # 正しいモデル識別子を指定
+    "cl-tohoku/bert-base-japanese-whole-word-masking",  # 正しいモデル識別子を指定
     num_labels=9  # ラベルの数を指定（必要に応じて調整）
 )
 
