@@ -45,8 +45,8 @@ for filename in file_list:
 #if os.path.isfile(ret_file_path):
 #    with open(ret_file_path, 'r') as ret_file:
 #        ret_contents = ret_file.read()
-#file_contents += f'pytouch_model.bin: ret\n'
-#file_contents += ret + '\n'
+file_contents += f'pytouc: ret\n'
+file_contents += ret + '\n'
 
 # すべてのファイルの内容を表示
 #print(file_contents)
@@ -56,9 +56,9 @@ for filename in file_list:
 
 
 
-loaded_model = BertForSequenceClassification.from_pretrained(url)
+loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
 loaded_model.cuda() 
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(directory_path)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
