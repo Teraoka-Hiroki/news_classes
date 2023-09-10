@@ -24,7 +24,7 @@ com.close()
 import os
 
 def concatenate_path_and_url(file_path, url):
-    combined_path = file_path + url
+    combined_path = file_path + "," + url
     return combined_path
 
 # テスト用のファイルパスとURL
