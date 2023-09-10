@@ -46,7 +46,7 @@ st.write("モデルを読み込みました2！")
 
 
 # モデルファイルを指定して読み込む
-loaded_model=BertForSequenceClassification.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased", num_labels=9)
+loaded_model=BertForSequenceClassification.from_pretrained("https://huggingface.co/cl-tohoku/bert-base-japanese-whole-word-masking", num_labels=9)
 
 # モデルのウェイトを読み込む
 loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
