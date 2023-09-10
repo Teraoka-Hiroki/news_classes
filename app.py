@@ -5,7 +5,7 @@ import json
 import torch
 from transformers import BertForMaskedLM
 from transformers import BertTokenizer
-import tensorflow as tf
+import tensorflow as from_tf
 
 from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 
