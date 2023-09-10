@@ -56,7 +56,7 @@ for filename in file_list:
 
 
 
-loaded_model = BertForSequenceClassification.from_pretrained(ret)
+loaded_model = BertForSequenceClassification.from_pretrained(url)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(directory_path)
 
