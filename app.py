@@ -43,8 +43,7 @@ response = requests.get(download_link)
 # モデルファイルを保存
 with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
-# モデルの保存
-torch.save(model.state_dict(), "pytorch_model.bin")
+
 
 st.write("モデルを読み込みました2！")
 
@@ -61,6 +60,8 @@ loaded_model = BertForSequenceClassification.from_pretrained(
 #loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
 
 # Streamlitアプリケーションでモデルを使用
+# モデルの保存
+torch.save(loaded_model.state_dict(), "pytorch_model.bin")
 # モデルの読み込み
 loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
 st.write("モデルを読み込みました3！")
