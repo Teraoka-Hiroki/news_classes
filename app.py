@@ -39,7 +39,6 @@ torch.save(loaded_model.state_dict(), "pytorch_model.bin")
 # モデルの読み込み
 loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
 st.write("モデルを読み込みました2！")
-com.close()
 
 url3='.'
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
