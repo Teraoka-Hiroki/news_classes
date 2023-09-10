@@ -42,10 +42,10 @@ response = requests.get(url)
 file_id = "1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n"
 
 # ダウンロードリンクを生成
-download_link = f"https://drive.google.com/uc?id={file_id}"
+download_link = f"https://drive.google.com/uc?id={file_id}/view?usp=sharing"
 
 # モデルをダウンロード
-response = requests.get(download_link)
+response = requests.get(url)
 # ダウンロードしたモデルをメモリ内に読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
     ".",  # ここではダミーのベースモデルを指定
