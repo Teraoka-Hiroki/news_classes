@@ -47,9 +47,10 @@ download_link = f"https://drive.google.com/uc?id={file_id}"
 # モデルをダウンロード
 response = requests.get(download_link)
 # ダウンロードしたモデルをメモリ内に読み込む
+st.write("モデルを読み込みました！")
 loaded_model = BertForSequenceClassification.from_pretrained(
     ".",  # ここではダミーのベースモデルを指定
-    state_dict=response
+    state_dict=response.content
 )
 com.close()
 
