@@ -23,18 +23,19 @@ com.close()
 
 import os
 
-def concatenate_path_and_url(file_path, url):
-    combined_path = file_path + " " + url
-    return combined_path
+def combine_multiple_paths(*file_paths):
+    return list(file_paths)
 
-# テスト用のファイルパスとURL
-file_path = "."
-url = url
+# テスト用の複数のファイルパス
+path1 = "."
+path2 = url
+#path3 = "/path/to/file3"
 
-# ファイルパスとURLを連結
-result_path = concatenate_path_and_url(file_path, url)
+# 複数のファイルパスを結合
+result_paths = combine_multiple_paths(path1, path2)
 
-#print("連結されたパス:", result_path)
+#print("結合されたファイルパス:", result_paths)
+
 
 
 
