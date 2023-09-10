@@ -46,7 +46,6 @@ st.write("モデルを読み込みました2！")
 
 
 # モデルファイルを指定して読み込む
-model = BertForSequenceClassification.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased")
 loaded_model=BertForSequenceClassification.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-uncased", num_labels=9)
 
 # モデルのウェイトを読み込む
