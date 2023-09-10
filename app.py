@@ -14,7 +14,7 @@ from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 #with zipfile.ZipFile('.zip') as zf:
 #    with zf.open('dir_sub/new_file.txt') as f:
 #        b = f.read()
-url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing"
+url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=drive_link"
 import urllib.request
 #---------------------------------------------------------------------------------------
 com=urllib.request.urlopen(url)
