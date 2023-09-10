@@ -39,7 +39,7 @@ result_path = combine_multiple_paths(path1, path2)
 
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
 url3='.'
-loaded_model = BertForSequenceClassification.from_pretrained(url)
+loaded_model = BertForSequenceClassification.from_pretrained(ret)
 loaded_model = BertForSequenceClassification.from_pretrained(url3)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
