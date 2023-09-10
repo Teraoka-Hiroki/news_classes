@@ -23,6 +23,20 @@ com.close()
 
 import os
 
+def combine_path_with_url(base_path, url):
+    # ファイルパスとURLを結合する
+    combined_path = os.path.join(base_path, url)
+    return combined_path
+
+# テスト用のファイルパスとURL
+file_path = "."
+url = url
+
+# ファイルパスとURLを合成
+result_path = combine_path_with_url(file_path, url)
+
+#print("合成されたパス:", result_path)
+
 # ファイルがあるディレクトリを指定（相対パスまたは絶対パスを使用）
 directory_path = '.'  # カレントディレクトリを指定します。必要に応じて変更してください。
 # ディレクトリ内のファイル一覧を取得
@@ -53,13 +67,9 @@ file_contents += ret.decode() + '\n'
 #print(file_contents)
 
 
-
-
-
-
-loaded_model = BertForSequenceClassification.from_pretrained(file_contents)
+loaded_model = BertForSequenceClassification.from_pretrained(result_path)
 loaded_model.cuda() 
-loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(file_contents)
+loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(result_path)
 
 st.title("「ニュースの分類」アプリ")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
