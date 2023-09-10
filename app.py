@@ -49,7 +49,7 @@ response = requests.get(url)
 # ダウンロードしたモデルをメモリ内に読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
     ".",  # ここではダミーのベースモデルを指定
-    state_dict=ret.content,
+    state_dict=ret,
 )
 
 url2=['.', 'https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing']
