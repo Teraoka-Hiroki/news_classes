@@ -63,7 +63,7 @@ st.write("モデルを読み込みました3！")
 com.close()
 
 url3='.'
-loaded_model = BertForSequenceClassification.from_pretrained(url)
+loaded_model = BertForSequenceClassification.from_pretrained(url3)
 #loaded_model = BertForSequenceClassification.from_pretrained(url3)
 loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
