@@ -7,29 +7,11 @@ from transformers import BertForMaskedLM
 from transformers import BertTokenizer
 from transformers import BertForSequenceClassification, BertConfig
 from transformers import BertJapaneseTokenizer
-
-#import tensorflow as from_tf
-#import tensorflow as tf
-
 from transformers import BertForSequenceClassification, BertJapaneseTokenizer
 
-#sc_model = BertForSequenceClassification.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking", num_labels=9)
-#sc_model.cuda()
-#tokenizer = BertJapaneseTokenizer.from_pretrained("cl-tohoku/bert-base-japanese-whole-word-masking")
-#with zipfile.ZipFile('.zip') as zf:
-#    with zf.open('dir_sub/new_file.txt') as f:
-#        b = f.read()
-url="https://drive.google.com/file/d/1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n/view?usp=sharing"
-import urllib.request
-#---------------------------------------------------------------------------------------
-com=urllib.request.urlopen(url)
-ret=com.read()
-#com.close()
-st.write("モデルを読み込みました1！")
-import os
 
-# モデルをダウンロード
-#response = requests.get(url)
+st.write("モデルを読み込んでいます！")
+import os
 
 # 共有リンクからファイルIDを抽出
 file_id = "1-1ZDrx8LvR4wdD654sBdua2il7l20Q-n"
@@ -44,8 +26,7 @@ response = requests.get(download_link)
 with open("pytorch_model.bin", "wb") as f:
     f.write(response.content)
 
-
-st.write("モデルを読み込みました2！")
+st.write("モデルを読み込みました1！")
 
 # モデルを読み込む
 loaded_model = BertForSequenceClassification.from_pretrained(
@@ -53,27 +34,19 @@ loaded_model = BertForSequenceClassification.from_pretrained(
     num_labels=9  # ラベルの数を指定（必要に応じて調整）
 )
 
-# モデルのウェイトを読み込む
-#loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
-
-# モデルを読み込む
-#loaded_model = BertForSequenceClassification.from_pretrained(".", state_dict=response.content)
-
-# Streamlitアプリケーションでモデルを使用
 # モデルの保存
 torch.save(loaded_model.state_dict(), "pytorch_model.bin")
 # モデルの読み込み
 loaded_model.load_state_dict(torch.load("pytorch_model.bin"))
-st.write("モデルを読み込みました3！")
+st.write("モデルを読み込みました2！")
 com.close()
 
 url3='.'
-#loaded_model = BertForSequenceClassification.from_pretrained(url3,from_tf=True)
-#loaded_model = BertForSequenceClassification.from_pretrained(url3)
-#loaded_model.cuda() 
 loaded_tokenizer = BertJapaneseTokenizer.from_pretrained(url3)
+st.write("モデルを読み込みました3！")
 
 st.title("「ニュースの分類」アプリ")
+st.write("")
 st.write("###### モデル ：Pretrained, Japanese BERT models （東北大学　乾研究室）")
 st.write("###### ファインチューニングのコーパス：Livedoorニュースコーパス（ldcc-20140209.tar.gz）")
 st.write("###### 分類クラス：「dokujo-tsushin」,「it-life-hack」,「kaden-channel」,「livedoor-homme」,「movie-enter」,「peachy」,「smax」,「sports-watch」,「topic-news」")
@@ -97,7 +70,7 @@ words = loaded_tokenizer.tokenize(sample_text)
 word_ids = loaded_tokenizer.convert_tokens_to_ids(words)  # 単語をインデックスに変換
 word_tensor = torch.tensor([word_ids[:max_length]])  # テンソルに変換
 
-x = word_tensor.cuda()  # GPU対応
+x = word_tensor  # GPU対応
 y = loaded_model(x)  # 予測
 pred = y[0].argmax(-1)  # 最大値のインデックス
 st.write("## 予測結果")
