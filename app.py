@@ -23,48 +23,19 @@ com.close()
 
 import os
 
-def combine_path_with_url(base_path, url):
-    # ファイルパスとURLを結合する
-    combined_path = os.path.join(base_path, url)
+def concatenate_path_and_url(file_path, url):
+    combined_path = file_path + url
     return combined_path
 
 # テスト用のファイルパスとURL
 file_path = "."
 url = url
 
-# ファイルパスとURLを合成
-result_path = combine_path_with_url(file_path, url)
+# ファイルパスとURLを連結
+result_path = concatenate_path_and_url(file_path, url)
 
-#print("合成されたパス:", result_path)
+#print("連結されたパス:", result_path)
 
-# ファイルがあるディレクトリを指定（相対パスまたは絶対パスを使用）
-directory_path = '.'  # カレントディレクトリを指定します。必要に応じて変更してください。
-# ディレクトリ内のファイル一覧を取得
-file_list = os.listdir(directory_path)
-
-file_contents = ""
-for filename in file_list:
-    # フルパスを作成
-    file_path = os.path.join(directory_path, filename)
-    
-    # ファイルかどうかを確認（ディレクトリなどは除外）
-    if os.path.isfile(file_path):
-        # ファイルを開いて中身を読み取る
-        with open(file_path, 'r') as file:
-            file_contents += f'ファイル名: {filename}\n'
-            file_contents += file.read() + '\n'
-
-# 'ret'ファイルの内容を追加する
-#ret_file_path = os.path.join(directory_path, 'ret')  # 'ret'ファイルのフルパス
-
-#if os.path.isfile(ret_file_path):
-#    with open(ret_file_path, 'r') as ret_file:
-#        ret_contents = ret_file.read()
-file_contents += f'pytouc: ret\n'
-file_contents += ret.decode() + '\n'
-
-# すべてのファイルの内容を表示
-#print(file_contents)
 
 
 loaded_model = BertForSequenceClassification.from_pretrained(result_path)
