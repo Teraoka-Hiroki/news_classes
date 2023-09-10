@@ -5,6 +5,7 @@ import json
 import torch
 from transformers import BertForMaskedLM
 from transformers import BertTokenizer
+from transformers import BertForSequenceClassification, BertConfig
 import tensorflow as from_tf
 import tensorflow as tf
 
